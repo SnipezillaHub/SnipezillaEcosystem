@@ -1,0 +1,26 @@
+{
+  "projectName": "lab-core",
+  "environment": "development",
+
+  "logging": {
+    "level": "debug",
+    "destinations": ["console", "file"],
+    "filePath": "./logs/lab-core.log",
+    "rotation": {
+      "enabled": true,
+      "maxSizeMB": 10,
+      "maxFiles": 5
+    }
+  },
+
+  "features": {
+    "enableDiagnostics": true,
+    "enableRealTimeAlerts": false,
+    "experimentalMode": false
+  },
+
+  "security": {
+    "sanitizeInputs": true,
+    "maskSecrets": true
+  }
+}
