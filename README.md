@@ -1,362 +1,369 @@
-# DeviceAI Runtime
+<p align="center">
+  <img width="400" height="400" alt="Snipezilla AI" src="https://github.com/user-attachments/assets/02314c23-648e-4532-a004-79c0b6cb2e83" />
+</p>
 
-**On-device AI runtime for Android, Desktop, iOS, Flutter, and React Native. Ship speech recognition, synthesis, and LLM inference — no cloud required, no latency, no privacy risk.**
+<h1 align="center">Snipezilla AI</h1>
+<div align="center">
+  <p><strong>AI-native token and wallet intelligence for Solana traders</strong></p>
+  <p>
+    Token health • Wallet profiling • Narrative research • Multi-surface workflow • Credit-based AI actions
+  </p>
+</div>
 
-[![Build](https://github.com/deviceai-labs/deviceai/actions/workflows/ci.yml/badge.svg)](https://github.com/deviceai-labs/deviceai/actions/workflows/ci.yml)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
-[![Maven Central](https://img.shields.io/maven-central/v/dev.deviceai/speech)](https://central.sonatype.com/artifact/dev.deviceai/speech)
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.2-blueviolet?logo=kotlin)](https://kotlinlang.org)
-[![Android](https://img.shields.io/badge/Platform-Android-green)](https://developer.android.com)
+<div align="center">
 
----
+[![Web App](https://img.shields.io/badge/Web%20App-Open-3b82f6?style=for-the-badge&logo=googlechrome&logoColor=white)](https://your-web-app-link)
+[![Telegram Mini App](https://img.shields.io/badge/Telegram%20Mini%20App-Launch-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/your_mini_app)
+[![Docs](https://img.shields.io/badge/Docs-Read-8b5cf6?style=for-the-badge&logo=readthedocs&logoColor=white)](https://your-docs-link)
+[![X.com](https://img.shields.io/badge/X.com-Follow-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/your_account)
+[![Telegram Community](https://img.shields.io/badge/Telegram%20Community-Join-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/your_group)
 
-## What's available
+</div>
 
-| Module | Language | Distribution | Status |
-|--------|----------|--------------|--------|
-| `kotlin/core` | Kotlin (Android + JVM) | Maven Central `dev.deviceai:core` | ✅ Available |
-| `kotlin/speech` | Kotlin (Android + JVM) | Maven Central `dev.deviceai:speech` | ✅ Available |
-| `kotlin/llm` | Kotlin (Android + JVM) | Maven Central `dev.deviceai:llm` | ✅ Available |
-| `swift/` | Swift | Swift Package Manager | 🚧 In progress |
-| `flutter/speech` | Dart | pub.dev `deviceai_speech` | 🗓 Planned |
-| `react-native/speech` | TypeScript | npm `react-native-deviceai-speech` | 🗓 Planned |
+> [!IMPORTANT]
+> Snipezilla AI turns raw token, wallet, and narrative data into plain-language verdicts in seconds without forcing you to jump across scanners, charts, chats, and research tabs
 
-Each SDK is **independent and native to its platform** — they all call the same C++ engines (whisper.cpp, sherpa-onnx, llama.cpp) directly, with no cross-language bridging. The Kotlin SDK targets Android and Desktop JVM. iOS is served by a dedicated Swift SDK.
+> [!TIP]
+> One wallet, one shared credit balance, one intelligence layer across Web App, Telegram Mini App, Browser Extension, and API flows
 
----
+> [!WARNING]
+> Snipezilla AI is non-custodial by design. It helps you evaluate setups and routes swaps through Jupiter on Solana, but every execution is still signed by your own wallet
 
-## Repository structure
+> [!NOTE]
+> The product is built for fast decision support, not blind automation. The strongest workflow is quick filter first, deeper report second, execution last
 
-```
-deviceai/
-├── kotlin/
-│   ├── core/       dev.deviceai:core    ✅  model management, storage, logging
-│   ├── speech/     dev.deviceai:speech  ✅  STT (Whisper) + TTS (sherpa-onnx) + VAD
-│   └── llm/        dev.deviceai:llm     ✅  LLM inference via llama.cpp + offline RAG
-├── swift/              Swift Package            🚧  Native iOS/macOS SDK
-├── flutter/
-│   └── speech/     pub.dev: deviceai_speech 🗓  Flutter plugin
-├── react-native/
-│   └── speech/     npm: react-native-deviceai-speech  🗓  TurboModule
-└── samples/
-    ├── androidApp/ Android demo app            ✅
-    └── iosApp/     native iOS sample           🚧 In progress
-```
+## One-Line Value
 
----
+Turn raw token, wallet, and project signals into actionable Solana trading context in seconds without stitching together five separate tools
 
-## Integration — Android (Kotlin)
+## Why It Wins
 
-### Step 1 — Add dependencies
+Snipezilla AI is built around one practical question: **is this structurally healthy, dangerously fragile, or worth a closer look**
 
-```kotlin
-// build.gradle.kts
-implementation("dev.deviceai:core:0.3.0-alpha01")
-implementation("dev.deviceai:speech:0.3.0-alpha01")   // STT + TTS + VAD
-implementation("dev.deviceai:llm:0.3.0-alpha01")      // LLM inference + RAG
-```
+Instead of giving you isolated metrics, it compresses liquidity quality, holder concentration, wallet behavior, volatility, and recent narrative changes into a readable verdict you can use immediately
 
-No extra repository config needed — all artifacts are on Maven Central.
+| Category | What Snipezilla AI changes |
+|---|---|
+| Removes | Scanner hopping, manual wallet stalking, fragmented narrative checks |
+| Speeds up | First-pass token and wallet evaluation from minutes to seconds |
+| Replaces | The workflow of checking a DEX, explorer, scanner, Telegram chat, and news feed separately |
+| Edge | One shared AI layer across web, chat, extension, and API with the same credits and the same judgment |
 
----
+> [!TIP]
+> This is not another chart-first tool pretending to be intelligence. Snipezilla AI is opinionated by design and prioritizes structure, behavior, and risk before hype
 
-### Step 2 — Initialize the SDK
+## Proof
 
-Call `DeviceAI.initialize()` **once** at app startup before using any module.
+Below is the kind of transformation the product is designed to deliver
 
-#### Android
+### Input → Output Example
 
-```kotlin
-import dev.deviceai.core.DeviceAI
-import dev.deviceai.core.Environment
-import dev.deviceai.models.PlatformStorage
+**Input**
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        PlatformStorage.initialize(this)
-        DeviceAI.initialize(context = this) {
-            environment = Environment.Development
-        }
-        setContent { App() }
-    }
-}
+```text
+Token: 9xQeWvG816bUx9EPfD8kG6Xn7hRj5s1Tt9v7example
+Request: quick token check
 ```
 
-#### With cloud backend (Staging / Production)
+**Output**
 
-```kotlin
-DeviceAI.initialize(context = this, apiKey = "dai_live_...") {
-    environment   = Environment.Production
-    telemetry     = Telemetry.Enabled
-    appVersion    = BuildConfig.VERSION_NAME
-    appAttributes = mapOf("user_tier" to "premium")
-}
+```text
+Verdict: High-risk microcap with thin liquidity and whale-heavy holder structure
+
+Why it matters:
+- Exit liquidity is weak for medium size entries
+- Top holders control too much of the float
+- Recent activity is aggressive but looks unstable
+
+Suggested next step:
+Avoid full size
+Only worth deeper review if narrative catalyst is strong
 ```
 
----
+That same logic also applies to wallet analysis
 
-### Step 3 — Download a model
-
-`ModelRegistry` fetches the catalog from HuggingFace and downloads models to local storage. Downloads are resumable on interruption.
-
-```kotlin
-import dev.deviceai.models.ModelRegistry
-
-val model = ModelRegistry.getOrDownload("ggml-tiny.en.bin") { progress ->
-    println("${progress.percentComplete.toInt()}% — ${progress.bytesDownloaded / 1_000_000}MB")
-}
+```text
+Wallet verdict: Steady grinder with controlled sizing and consistent rotation
+Style: swing trader
+Risk level: moderate
+What stands out: wins are smaller but repeatable, concentration is healthier than typical degen wallets
 ```
 
-> **whisper-tiny.en** (75 MB) runs 7× faster than real-time on mid-range Android hardware.
+## Product View
 
----
+Snipezilla AI is one intelligence workspace expressed through multiple surfaces
 
-### Step 4 — Transcribe speech
+```mermaid
+flowchart TD
+    U[User Wallet Identity] --> S[Shared Snipezilla Workspace]
 
-```kotlin
-import dev.deviceai.SpeechBridge
-import dev.deviceai.SttConfig
+    subgraph Surfaces[User Surfaces]
+        WA[Web App]
+        TG[Telegram Mini App]
+        EX[Browser Extension]
+        API[API Integrations]
+    end
 
-SpeechBridge.initStt(model.modelPath, SttConfig(language = "en", useGpu = true))
+    WA --> S
+    TG --> S
+    EX --> S
+    API --> S
 
-val text: String = SpeechBridge.transcribeAudio(samples) // FloatArray, 16kHz mono PCM
-// or
-val text: String = SpeechBridge.transcribe("/path/to/audio.wav")
+    S --> C[Shared Credits]
+    S --> H[History]
+    S --> W[Watchlists]
+    S --> P[Preferences]
+    S --> B[Billing]
 
-SpeechBridge.shutdownStt()
+    subgraph Intelligence[Intelligence Layer]
+        TA[Token Analytics]
+        LA[Wallet Analytics]
+        AA[Analytics Agent]
+        RA[Research Agent]
+    end
+
+    C --> TA
+    C --> LA
+    C --> AA
+    C --> RA
+
+    TA --> O[Plain-Language Verdicts]
+    LA --> O
+    AA --> O
+    RA --> O
+
+    O --> D[Decision Layer]
+    D --> A1[Avoid]
+    D --> A2[Watchlist]
+    D --> A3[Deep Report]
+    D --> A4[Swap via Jupiter]
 ```
 
----
+## Run in 60 Seconds
 
-### Step 5 — Synthesize speech (optional)
+The first useful experience is intentionally simple: connect wallet, paste token or wallet, get a verdict, decide whether it deserves deeper credits
 
-```kotlin
-import dev.deviceai.SpeechBridge
-import dev.deviceai.TtsConfig
+### 1) Connect
 
-SpeechBridge.initTts(
-    modelPath  = voice.modelPath,
-    tokensPath = voice.tokensPath,
-    config     = TtsConfig(speechRate = 1.0f)
-)
+Sign in with a supported wallet and unlock your shared workspace across all surfaces
 
-val pcm: ShortArray = SpeechBridge.synthesize("Hello from DeviceAI.")
-// Play with AudioTrack
+> [!IMPORTANT]
+> Wallet sign-in uses a human-readable signature, not a spend approval and not a token transfer
 
-SpeechBridge.shutdownTts()
-```
+### 2) Start with a quick check
 
----
-
-### Step 6 — Run a local LLM
-
-```kotlin
-import dev.deviceai.core.DeviceAI
-import dev.deviceai.llm.llm
-
-// Create a chat session — model loads once, history is automatic
-val session = DeviceAI.llm.chat("/path/to/model.gguf") {
-    systemPrompt = "You are a helpful assistant."
-    maxTokens    = 512
-    temperature  = 0.7f
-    useGpu       = true
-}
-
-// Streaming (recommended for UI)
-session.send("What is Kotlin Multiplatform?")
-    .collect { token -> print(token) }
-
-// Multi-turn — history managed automatically
-session.send("Give me a code example.").collect { print(it) }
-
-// Blocking (scripts / tests)
-val reply = session.sendBlocking("Summarise in one line.")
-
-// Lifecycle
-session.cancel()       // abort in-progress generation
-session.clearHistory() // fresh conversation, model stays loaded
-session.close()        // unload model, free resources
-```
-
----
-
-### Step 7 — Offline RAG (optional)
-
-Attach a `BM25RagStore` to inject local documents as context — no embedding model required.
-
-```kotlin
-import dev.deviceai.llm.rag.BM25RagStore
-
-val store = BM25RagStore(rawChunks = listOf(
-    "DeviceAI supports Android, iOS, and Desktop.",
-    "LLM inference uses llama.cpp with Metal on Apple Silicon."
-))
-
-val session = DeviceAI.llm.chat("/path/to/model.gguf") {
-    ragStore = store
-}
-
-session.send("Which platforms does DeviceAI support?").collect { print(it) }
-```
-
----
-
-## Environments
-
-| Environment | API key | Backend | Log level | Use for |
-|-------------|---------|---------|-----------|---------|
-| `Development` | not required | none — local model path | DEBUG | local dev, unit tests |
-| `Staging` | required | staging.api.deviceai.dev | DEBUG | pre-release QA |
-| `Production` | required | api.deviceai.dev | WARN | release builds |
-
----
-
-## Architecture
-
-```
-Your App
-    │
-    ▼
-DeviceAI.initialize(context, apiKey) { environment = Environment.Development }
-    │
-    ├── kotlin/core   (dev.deviceai:core)
-    │       DeviceAI           — unified SDK entry point
-    │       CoreSDKLogger       — structured, environment-aware logging
-    │       ModelRegistry       — model discovery, download, local management
-    │       PlatformStorage     — Android file I/O
-    │
-    ├── kotlin/speech  (dev.deviceai:speech)
-    │       SpeechBridge        — unified STT + TTS Kotlin API
-    │           │
-    │           └── JNI → libspeech_jni.so
-    │                   ├── whisper.cpp   (STT)
-    │                   └── sherpa-onnx   (TTS + VAD)
-    │
-    └── kotlin/llm  (dev.deviceai:llm)
-            DeviceAI.llm.chat()   — creates a ChatSession
-            ChatSession            — stateful conversation, streaming Flow<String>
-            BM25RagStore           — offline retrieval-augmented generation
-                │
-                └── JNI → libdeviceai_llm_jni.so
-                        └── llama.cpp (Vulkan GPU)
-```
-
----
-
-## Features
-
-| Feature | Status |
-|---------|--------|
-| Speech-to-Text (Whisper) | ✅ Android |
-| Text-to-Speech (sherpa-onnx VITS / Kokoro) | ✅ Android |
-| Voice Activity Detection (Silero VAD) | ✅ Android |
-| LLM inference (llama.cpp) | ✅ Android |
-| Offline RAG (BM25) | ✅ Android |
-| Streaming LLM generation (`Flow<String>`) | ✅ Android |
-| Stateful `ChatSession` with auto history | ✅ |
-| Auto model download (HuggingFace) | ✅ |
-| GPU acceleration (Metal / Vulkan) | ✅ |
-| Cloud backend — OTA models, telemetry | 🚧 In progress |
-| Swift SDK (iOS / macOS) | 🚧 In progress |
-| Flutter plugin | 🗓 Planned |
-| React Native module | 🗓 Planned |
-| Tool calling / voice agents | 🗓 Planned |
-
----
-
-## Models
-
-### Whisper (STT)
-
-| Model | Size | Speed | Best for |
-|-------|------|-------|----------|
-| `ggml-tiny.en.bin` | 75 MB | 7× real-time | English, mobile-first |
-| `ggml-base.bin` | 142 MB | Fast | Multilingual, balanced |
-| `ggml-small.bin` | 466 MB | Medium | Higher accuracy |
-
-### LLM (GGUF via llama.cpp)
-
-| Model | Size | Best for |
-|-------|------|----------|
-| SmolLM2-360M-Instruct (Q4) | ~220 MB | Fastest, mobile-first |
-| SmolLM2-1.7B-Instruct (Q4) | ~1 GB | Balanced |
-| Qwen2.5-0.5B-Instruct (Q4) | ~400 MB | Multilingual, compact |
-| Llama-3.2-1B-Instruct (Q4) | ~700 MB | Strong reasoning |
-
-Browse all available models via `LlmCatalog`.
-
----
-
-## Platform support
-
-### Kotlin SDK (this repo)
-
-| Platform | STT | TTS | LLM | Sample App |
-|----------|-----|-----|-----|------------|
-| Android (API 26+) | ✅ | ✅ | ✅ | ✅ |
-
-### Coming soon
-
-| Platform | SDK | Status |
-|----------|-----|--------|
-| iOS | Swift Package (`swift/`) | 🚧 In progress |
-| iOS sample app | Native SwiftUI (`samples/iosApp/`) | 🚧 In progress |
-| macOS Desktop | Swift Package (`swift/`) | 🚧 In progress |
-| Flutter | Dart plugin | 🗓 Planned |
-| React Native | TurboModule | 🗓 Planned |
-
----
-
-## Benchmarks
-
-| Device | Chip | Model | Audio | Inference | RTF |
-|--------|------|-------|-------|-----------|-----|
-| Redmi Note 9 Pro | Snapdragon 720G | whisper-tiny | 5.4s | 746ms | **0.14x** |
-
-> RTF < 1.0 = faster than real-time. 0.14x = ~7× faster than real-time on a mid-range Android phone.
-
----
-
-## Building from source
-
-**Prerequisites:** CMake 3.22+, Android NDK r26+, Kotlin 2.2+, Android Studio
+Use a token mint, wallet address, ticker, or detected page context
 
 ```bash
-git clone --recursive https://github.com/deviceai-labs/deviceai.git
-cd deviceai
-
-# Compile checks
-./gradlew :kotlin:core:compileDebugKotlinAndroid
-./gradlew :kotlin:speech:compileDebugKotlinAndroid
-./gradlew :kotlin:llm:compileDebugKotlinAndroid
+POST /v1/agents/run
 ```
 
----
-
-## Roadmap
-
-- [x] Kotlin SDK — speech, LLM, RAG, streaming
-- [x] `DeviceAI` unified entry point with `Environment` + `CloudConfig` DSL
-- [x] `ChatSession` — stateful multi-turn LLM conversations
-- [ ] Backend integration — device registration, OTA model assignment, telemetry
-- [ ] Swift SDK — native iOS/macOS package (in progress)
-- [ ] Flutter SDK
-- [ ] React Native SDK
-- [ ] Tool calling / voice agents (`DeviceAI.agent`)
-
----
-
-## Sample App
-
-`samples/androidApp/` is a working Android demo app.
-
-```bash
-# Open in Android Studio and run on device/emulator
+```json
+{
+  "agent_type": "token",
+  "mode": "quick",
+  "network": "solana",
+  "input": {
+    "token_address": "So11111111111111111111111111111111111111112"
+  },
+  "language": "en"
+}
 ```
 
----
+### 3) Expected result
 
-## Contributing
+You receive a compact verdict with the reason behind it, not just a raw metric dump
 
-Issues and PRs welcome. Platform wrapper contributions (`ios/`, `flutter/`, `react-native/`) are especially welcome — each stub directory contains a README with the expected API surface.
+| Output block | What you see |
+|---|---|
+| Verdict | Structurally healthy, fragile, risky, or interesting |
+| Risk framing | Liquidity weakness, concentration issues, behavior anomalies |
+| Action path | Avoid, watch, go deeper, or open swap flow |
+
+## Plug Anywhere
+
+Snipezilla AI is designed to fit where the signal already appears first, instead of forcing users into one interface only
+
+| Path | Best use |
+|---|---|
+| Web App | Full research mode, settings, billing, longer reports |
+| Telegram Mini App | Fast token and wallet checks inside active chat flow |
+| Browser Extension | Context overlays on scanners, DEX pages, and wallet views |
+| API | Bot backends, dashboards, internal tooling, automation pipelines |
+| Webhooks | Async jobs, alerts, result delivery into your own systems |
+
+> [!NOTE]
+> The same credit balance powers every surface, so users do not repeat work when they move from chat to desktop or from extension to backend
+
+## Core Examples
+
+### Quick token check
+
+```js
+import fetch from "node-fetch"
+
+const API_KEY = process.env.SNIPEZILLA_API_KEY
+const BASE_URL = "https://api.snipezilla.ai/v1"
+
+async function runQuickTokenCheck(tokenAddress) {
+  const response = await fetch(`${BASE_URL}/agents/run`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      agent_type: "token",
+      mode: "quick",
+      network: "solana",
+      input: { token_address: tokenAddress },
+      language: "en"
+    })
+  })
+
+  if (!response.ok) {
+    throw new Error(`Request failed: ${response.status}`)
+  }
+
+  const data = await response.json()
+  return data.result
+}
+```
+
+### Quick wallet check
+
+```python
+import os
+import requests
+
+API_KEY = os.environ.get("SNIPEZILLA_API_KEY")
+BASE_URL = "https://api.snipezilla.ai/v1"
+
+
+def run_quick_wallet_check(wallet_address: str):
+    response = requests.post(
+        f"{BASE_URL}/agents/run",
+        headers={
+            "Authorization": f"Bearer {API_KEY}",
+            "Content-Type": "application/json"
+        },
+        json={
+            "agent_type": "wallet",
+            "mode": "quick",
+            "network": "solana",
+            "input": {"wallet_address": wallet_address},
+            "language": "en"
+        },
+        timeout=30
+    )
+    response.raise_for_status()
+    return response.json()["result"]
+```
+
+### Async job for heavier analysis
+
+```json
+{
+  "job_id": "job_01JDEFXYZ",
+  "status": "queued",
+  "agent_type": "wallet",
+  "mode": "full",
+  "estimated_credits": 6,
+  "created_at": "2026-03-07T07:10:00Z"
+}
+```
+
+### Webhook event
+
+```json
+{
+  "event": "job.completed",
+  "job_id": "job_01JDEFXYZ",
+  "status": "completed",
+  "agent_type": "wallet",
+  "mode": "full",
+  "credits_used": 6,
+  "trace_id": "trace_9x8y7z",
+  "timestamp": "2026-03-07T07:10:18Z"
+}
+```
+
+## How It Works
+
+Snipezilla AI sits on top of token analytics, wallet analytics, and research inputs, then converts that data into a plain-language verdict that is easier to act on than a dashboard full of disconnected numbers
+
+1. A token, wallet, or project query enters through web, chat, extension, or API
+2. The system pulls structural, behavioral, and narrative context for the selected object
+3. Specialized agents evaluate health, risk, concentration, volatility, and recent changes
+4. The result is compressed into a short verdict with red flags, green flags, and next-step guidance
+5. The same result can lead into watchlisting, deeper research, or a Jupiter swap route on Solana
+
+## Customization Surface
+
+The product stays simple at the top layer, but there is enough control for different user types and integrations
+
+| Surface | What can be adjusted |
+|---|---|
+| User settings | Default chain, language, notification style, report depth |
+| Analysis mode | Quick check vs deeper report |
+| API usage | Agent type, network, input object, language, job mode |
+| Integration layer | Webhooks, retries, workers, bots, dashboards |
+| Billing layer | Free credits, subscriptions, top-ups, token-based credit purchases |
+
+> [!TIP]
+> The cleanest usage pattern is to run cheap quick checks as a filter and reserve deeper reports for setups that already survived the first pass
+
+## Credits and Token Model
+
+Snipezilla AI uses credits as the unit of work and **$SNIPEZILLA** as the native utility token that can be used to purchase those credits
+
+| Component | Role |
+|---|---|
+| Credits | Meter heavy actions such as token checks, wallet checks, and research calls |
+| Free tier | 10 credits on first wallet connect |
+| Subscriptions | Monthly bundles sized for different activity levels |
+| Top-ups | One-off credit packages when users run out mid-cycle |
+| Native token | Preferred payment rail for credits and future platform utility |
+| Usage loop | Higher product usage can drive both token burn and treasury inflow |
+
+> [!IMPORTANT]
+> When credits are purchased with $SNIPEZILLA, the default economic design is 80% burn and 20% treasury, linking real product usage to both scarcity and sustainability
+
+## Limits & Trade-Offs
+
+Good repositories earn trust faster when they clearly state where the product stops being the right tool
+
+| Area | Reality |
+|---|---|
+| Not a custody layer | Snipezilla AI never holds user funds |
+| Not blind automation | It suggests paths, but the user still decides and signs |
+| Not a guarantee engine | A structurally healthy token can still fail on narrative or timing |
+| Not chain-maximal yet | Solana is the primary deep integration today |
+| Not infinite free usage | Heavy actions consume credits and deeper analysis costs more |
+
+> [!WARNING]
+> This product is strongest as a decision support layer, not as a substitute for position sizing, timing discipline, or independent judgment
+
+## Best Fit / Anti-Fit
+
+| ✅ Ideal for | ❌ Not for |
+|---|---|
+| Solana traders who need fast first-pass risk framing | Users looking for fully automated copy trading |
+| Researchers who want readable token and wallet context | Users who expect guaranteed alpha from a single score |
+| Bot and dashboard builders who need agent-backed intelligence | Users who need deep multi-chain parity on day one |
+| Telegram-native users who want one-tap checks in chat | Users who never plan to connect a wallet or use credits |
+
+## Integration Notes
+
+For product teams, bot builders, and infra operators, Snipezilla AI can also behave like a backend intelligence layer rather than a standalone app
+
+- Use `/agents/run` for synchronous checks inside interfaces and bots
+- Use jobs plus webhooks for heavier reports and multi-object processing
+- Keep API keys server-side and verify webhook signatures
+- Log `job_id` and `trace_id` for reliable debugging and replay handling
+
+## Final Take
+
+Snipezilla AI is built for the moment right before action
+
+When a token shows up in chat, on a chart, inside a wallet, or inside your own tooling, it gives you one shared intelligence layer that answers the question that matters first: **should this move closer to your capital or further away from it**
